@@ -2,20 +2,23 @@ pipeline {
     agent any
 
     stages {
-		stage('Build') 
-	}
-    stage('Run Tests') {
-		parallel {
-			stage('Test On Windows') {
-				steps {
-					echo "windows"
-				}
-			}
-			stage('Test On Linux') {
-				steps {
-					echo "Linux"
-				}
-			}
-		}
+		stage('Build') {
+            echo "building"
+
+        }
+	    stage('Run Tests') {
+	    	parallel {
+		    	stage('Test On Windows') {
+				    steps {
+    					echo "windows"
+				    }
+			    }
+			    stage('Test On Linux') {
+    				steps {
+					    echo "Linux"
+				    }
+			    }
+		    }
+        }
     }
 }
