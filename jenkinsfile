@@ -4,7 +4,7 @@ pipeline {
     stages {
 		stage('Build') {
             steps{
-                git clone -branch Staging https://github.com/eloymillan/dockerbluegreen.git
+                sh 'git clone -branch Staging https://github.com/eloymillan/dockerbluegreen.git'
                 sh 'ls -lha .'
             }
         }
