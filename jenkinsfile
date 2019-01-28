@@ -21,5 +21,30 @@ pipeline {
 			    }
 		    }
         }
+        stage('Deploy in UAT'){
+            steps{
+                echo "deploying in UAT STEP1"
+            }
+            steps{
+                echo "deploying in UAT STEP1"
+            }
+        }
+        stage('Deploy in Stagging'){
+            steps{
+                echo "deploying in Stagging STEP1"
+            }
+            steps{
+                echo "deploying in Stagging STEP1"
+            }
+        }
+        stage('Deploy in Production'){
+            steps{
+                echo "deploying in Production STEP1"
+            }
+            steps{
+                echo "deploying in Production STEP1"
+            }
+        }
+
     }
 }
