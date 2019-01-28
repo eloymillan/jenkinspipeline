@@ -24,20 +24,21 @@ pipeline {
         stage('Deploy in UAT'){
             steps{
                 echo "deploying in UAT STEP1"
-                echo "deploying in UAT STEP1"
+                echo "deploying in UAT STEP2"
             }
         }
         stage('Deploy in Staging'){
             steps{
+                 input "ACCEPT DEPLOY IN STAGGING"
                 echo "deploying in Stagging STEP1"
-                echo "deploying in Stagging STEP1"
+                echo "deploying in Stagging STEP2"
             }
         }
         stage('Deploy in Production'){
             steps{
                 input "ACCEPT DEPLOY IN PRODUCTION"
                 echo "deploying in Production STEP1"
-                echo "deploying in Production STEP1"
+                echo "deploying in Production STEP2"
             }
         }
     }
