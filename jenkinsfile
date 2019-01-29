@@ -1,4 +1,5 @@
 pipeline {
+    agent {label 'Linuxservers'}
     stages {
 		stage('Build') {
             steps{
