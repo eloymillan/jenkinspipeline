@@ -23,10 +23,8 @@ pipeline {
 			    }
 		    }
         }
-    } 
-    agent {label 'Linuxservers'}
-    stages {  
         stage('Testing in remote nodes'){
+              agent {label 'Linuxservers'}
             steps{
                 echo "deploying in nodes"
                 sh 'hostname'
