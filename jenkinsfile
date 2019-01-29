@@ -4,42 +4,32 @@ pipeline {
     stages {
 		stage('Build') {
             steps{
-                sh 'git clone -branch Staging https://github.com/eloymillan/dockerbluegreen.git'
-                sh 'ls -lha .'
+                sh 'hostname'
             }
         }
-	    stage('Run Tests') {
+	    stage('Run Tests in master') {
 	    	parallel {
-		    	stage('Test On Windows') {
+		    	stage('Test Paralell1') {
 				    steps {
-    					echo "windows"
+    					echo "Paralell1"
+                        sh 'hostname'
 				    }
 			    }
-			    stage('Test On Linux') {
+			    stage('Test Paralell2') {
     				steps {
-					    echo "Linux"
+					    echo "Paralell2"
+                        sh 'hostname'
 				    }
 			    }
 		    }
         }
-        stage('Deploy in UAT'){
+    } 
+    agent {label 'Linuxservers'}
+    stages {  
+        stage('Testing in remote nodes'){
             steps{
-                echo "deploying in UAT STEP1"
-                echo "deploying in UAT STEP2"
-            }
-        }
-        stage('Deploy in Staging'){
-            steps{
-                 input "ACCEPT DEPLOY IN STAGGING"
-                echo "deploying in Stagging STEP1"
-                echo "deploying in Stagging STEP2"
-            }
-        }
-        stage('Deploy in Production'){
-            steps{
-                input "ACCEPT DEPLOY IN PRODUCTION"
-                echo "deploying in Production STEP1"
-                echo "deploying in Production STEP2"
+                echo "deploying in nodes"
+                sh 'hostname'
             }
         }
     }
