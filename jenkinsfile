@@ -6,36 +6,7 @@ pipeline {
                 sh 'hostname'
             }
         }
-	    stage('Run Tests in master') {
-	    	parallel {
-                node('node1'){
-                    stage('Test Paralell1') {
-				        steps {
-        					echo "Paralell1"
-                            sh 'hostname'
-				        }
-			        }
-                }
-                node('node2'){
-                    stage('Test Paralell2') {
-				        steps {
-        					echo "Paralell2"
-                            sh 'hostname'
-				        }
-			        }
-                }
-                node('node3'){
-                    stage('Test Paralell3') {
-				        steps {
-        					echo "Paralell3"
-                            sh 'hostname'
-				        }
-			        }
-                }
-		    }
-        }
         stage('Testing in remote nodes'){
-              agent {label 'Linuxservers'}
             steps{
                 echo "deploying in nodes"
                 sh 'hostname'
