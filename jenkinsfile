@@ -6,8 +6,9 @@ pipeline {
                 sh 'hostname'
             }
         }
-        stage('Testing in remote nodes'){
-            node('node3'){
+        node('node3'){
+            stage('Testing in remote nodes'){
+                
                 echo "deploying in nodes"
                 sh 'hostname'
             }
